@@ -42,7 +42,7 @@ router.post('/', bodyParser, (req, res, next)=> {
 
 router.put('/', bodyParser, (req, res, next)=> {
   var _id  =req.body._id;
-  Candy.findOneAndUpdate({_id},req.body,(err,pieces)=> {
+  Candy.findOneAndUpdate({_id},req.body,(err)=> {
     if (err) return next(err);
     var message = 'Candy updated!';
     res.json({message});
@@ -51,7 +51,7 @@ router.put('/', bodyParser, (req, res, next)=> {
 
 router.delete('/:id',(req, res, next)=> {
   var _id = req.params.id;
-  Candy.findOneAndRemove({_id},(err,pieces)=> {
+  Candy.findOneAndRemove({_id},(err)=> {
     if (err) return next(err);
     var message = 'Candy eaten!';
     res.json({message});
